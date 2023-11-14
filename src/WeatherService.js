@@ -56,3 +56,26 @@ export async function fetchWeatherData(lat, lon) {
     return null;
   }
 }
+
+/**
+ * Search for cities based on user input.
+ *
+ * @param {string} input - User's input (city name or coordinates).
+ * @returns {Promise} A promise that resolves with city data.
+ * @throws {Error} If the city API request fails or the response is not OK.
+ */
+export async function fetchCities(input) {
+  try {
+    const citiesUrl = `${GEO_API_URL}/cities?minPopulation=10000&namePrefix=${input}`;
+    const response = await fetch(citiesUrl, GEO_API_OPTIONS);
+
+    if (!response.ok) {
+      throw new Error(`City API request failed with status: ${response.status}`);
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
