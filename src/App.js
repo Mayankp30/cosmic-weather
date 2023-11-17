@@ -10,7 +10,7 @@ import {
 import Search from './components/Search/Search';
 import WeeklyForecast from './components/WeeklyForecast/WeeklyForecast';
 import TodayWeather from './components/TodayWeather/TodayWeather';
-import { fetchWeatherData } from './api/OpenWeatherService';
+import { fetchWeatherData } from './api/WeatherService';
 import { transformDateFormat } from './utilities/DatetimeUtils';
 import UTCDatetime from './components/Reusable/UTCDatetime';
 import LoadingBox from './components/Reusable/LoadingBox';
