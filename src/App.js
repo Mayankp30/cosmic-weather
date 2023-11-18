@@ -122,7 +122,7 @@ function App() {
           lineHeight: '22px',
         }}
       >
-        Hi There, Explore current weather data and upcoming days forecast of the cities across the world, to search by latitude and longitude use the toggle button on the left!
+        Hi There, Explore current weather data and upcoming days forecast, to search by latitude and longitude use the toggle button on the top left!
       </Typography>
     </Box>
   );
