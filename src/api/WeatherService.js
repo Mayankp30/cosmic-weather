@@ -1,18 +1,11 @@
-/**
- * OpenWeatherMap API key and base URL.
- */
+// Define the API key and base URL for OpenWeatherMap
 const API_KEY = '70085da72ee43283daa761fe55c3ab67';
 const API_BASE_URL = 'https://api.openweathermap.org/data/2.5';
 
-/**
- * OpenWeatherMap API endpoints.
- */
+// Define the API endpoints for weather and forecast
 const WEATHER_PATH = '/weather';
 const FORECAST_PATH = '/forecast';
 
-/**
- * GeoDB API information.
- */
 const GEO_API_URL = 'https://wft-geo-db.p.rapidapi.com/v1/geo';
 const GEO_API_OPTIONS = {
   method: 'GET',
@@ -22,14 +15,7 @@ const GEO_API_OPTIONS = {
   },
 };
 
-/**
- * Fetches weather data for a given latitude and longitude.
- *
- * @param {number} lat - Latitude of the location.
- * @param {number} lon - Longitude of the location.
- * @returns {Promise<Array>} A promise that resolves with an array of weather and forecast data.
- * @throws {Error} If the API request fails or the response is not OK.
- */
+// Function to fetch weather data for a given latitude and longitude
 const fetchWeatherData = async (lat, lon) => {
   try {
     // Fetch weather and forecast data in parallel
@@ -51,35 +37,17 @@ const fetchWeatherData = async (lat, lon) => {
   }
 };
 
-/**
- * Constructs the URL for weather data.
- *
- * @param {number} lat - Latitude of the location.
- * @param {number} lon - Longitude of the location.
- * @returns {string} The constructed weather URL.
- */
+// Function to construct the URL for weather data
 const getWeatherURL = (lat, lon) => {
   return `${API_BASE_URL}${WEATHER_PATH}?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
 };
 
-/**
- * Constructs the URL for forecast data.
- *
- * @param {number} lat - Latitude of the location.
- * @param {number} lon - Longitude of the location.
- * @returns {string} The constructed forecast URL.
- */
+// Function to construct the URL for forecast data
 const getForecastURL = (lat, lon) => {
   return `${API_BASE_URL}${FORECAST_PATH}?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
 };
 
-/**
- * Fetches city data based on user input.
- *
- * @param {string} input - User's input (city name or coordinates).
- * @returns {Promise<*>} A promise that resolves with city data.
- * @throws {Error} If the city API request fails or the response is not OK.
- */
+// Function to fetch city data based on user input
 const fetchCities = async (input) => {
   try {
     // Validate input
@@ -106,12 +74,7 @@ const fetchCities = async (input) => {
   }
 };
 
-/**
- * Validates the input string.
- *
- * @param {string} input - User's input.
- * @returns {boolean} True if the input is valid, false otherwise.
- */
+// Function to validate input
 const isValidInput = (input) => {
   // Validate input
   return input && input.trim().length > 0;
