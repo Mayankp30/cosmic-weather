@@ -5,7 +5,7 @@ import FilterDramaIcon from '@mui/icons-material/FilterDrama';
 import ThermostatIcon from '@mui/icons-material/Thermostat';
 import { ReactComponent as HumidityIcon } from '../../assets/humidity.svg';
 
-const WeeklyForecastItem = ({ value, type }) => {
+const WeeklyForecastItem = ({ value, min, max, type }) => {
   let iconContent;
 
   if (type === 'temperature')
@@ -46,20 +46,43 @@ const WeeklyForecastItem = ({ value, type }) => {
         width: '100%',
       }}
     >
-      {iconContent}
-      <Typography
-        variant="p"
-        component="p"
-        sx={{
-          fontSize: { xs: '12px', sm: '13px' },
-          fontWeight: { xs: '400', sm: '600' },
-          color: 'white',
-          fontFamily: 'Poppins',
-          lineHeight: 1,
-        }}
-      >
-        {value}
-      </Typography>
+        {min ? (<Typography
+            variant="p"
+            component="p"
+            sx={{
+                fontSize: { xs: '12px', sm: '13px' },
+                fontWeight: { xs: '400', sm: '600' },
+                color: 'white',
+                fontFamily: 'Poppins',
+                lineHeight: 1,
+            }}
+        >{min}
+        </Typography>):<></>}
+        {iconContent}
+        {max ? (<Typography
+            variant="p"
+            component="p"
+            sx={{
+                fontSize: { xs: '12px', sm: '13px' },
+                fontWeight: { xs: '400', sm: '600' },
+                color: 'white',
+                fontFamily: 'Poppins',
+                lineHeight: 1,
+            }}
+        >{max}
+        </Typography>):<></>}
+        {value ? (<Typography
+            variant="p"
+            component="p"
+            sx={{
+                fontSize: { xs: '12px', sm: '13px' },
+                fontWeight: { xs: '400', sm: '600' },
+                color: 'white',
+                fontFamily: 'Poppins',
+                lineHeight: 1,
+            }}
+        >{value}
+        </Typography>):<></>}
     </Box>
   );
 };

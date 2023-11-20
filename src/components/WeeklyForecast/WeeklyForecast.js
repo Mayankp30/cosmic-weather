@@ -67,7 +67,8 @@ const WeeklyForecast = ({data}) => {
                             >
                                 <WeeklyForecastItem
                                     type="temperature"
-                                    value={Math.round(item.temp) + ' °C'}
+                                    min = {Math.round(item.temp_min) + ' °C'}
+                                    max = {Math.round(item.temp_max) + ' °C'}
                                     color="black"
                                 />
                                 <WeeklyForecastItem
