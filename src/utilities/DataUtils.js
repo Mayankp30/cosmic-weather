@@ -52,6 +52,8 @@ export const getWeekForecastWeather = (response, descriptions_list) => {
       foreacast_data.push({
         date: item.dt_txt.substring(0, 10),
         temp: item.main.temp,
+        temp_min: item.main.temp_min,
+        temp_max: item.main.temp_max,
         humidity: item.main.humidity,
         wind: item.wind.speed,
         clouds: item.clouds.all,
@@ -84,17 +86,23 @@ export const getWeekForecastWeather = (response, descriptions_list) => {
     let dayHumidityList = [];
     let dayWindList = [];
     let dayCloudsList = [];
+    let dayTempMinList = [];
+    let dayTempMaxList = [];
 
     for (let i = 0; i < grouped_forecast_data[key].length; i++) {
       dayTempsList.push(grouped_forecast_data[key][i].temp);
       dayHumidityList.push(grouped_forecast_data[key][i].humidity);
       dayWindList.push(grouped_forecast_data[key][i].wind);
       dayCloudsList.push(grouped_forecast_data[key][i].clouds);
+      dayTempMinList.push(grouped_forecast_data[key][i].temp_min);
+      dayTempMaxList.push(grouped_forecast_data[key][i].temp_max);
     }
 
     dayAvgsList.push({
       date: key,
       temp: getAverage(dayTempsList),
+      temp_min: getAverage(dayTempMinList),
+      temp_max: getAverage(dayTempMaxList),
       humidity: getAverage(dayHumidityList),
       wind: getAverage(dayWindList, false),
       clouds: getAverage(dayCloudsList),
