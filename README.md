@@ -25,3 +25,8 @@ git clone https://github.com/Mayankp30/cosmic-weather.git
 # start app 
 
 npm start
+
+
+# Live Demo (deployed on firebase)
+
+https://weather-app-eee14.web.app/
