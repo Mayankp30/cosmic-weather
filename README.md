@@ -14,17 +14,14 @@ git clone https://github.com/Mayankp30/cosmic-weather.git
     Install the packages using the command 
     
     npm install
+    npm start
+
 
 
 # Used libraries
 
     react-js
     material-ui
-
-
-# start app 
-
-npm start
 
 
 # Live Demo (deployed on firebase)
