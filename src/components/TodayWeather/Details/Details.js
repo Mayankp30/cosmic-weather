@@ -37,6 +37,8 @@ const Details = ({ data }) => {
         >
           <TemperatureWeatherDetail
             temperature={data.main.temp}
+            temp_min = {data.main.temp_min}
+            temp_max = {data.main.temp_max}
             description={data.weather[0].description}
           />
         </Grid>
