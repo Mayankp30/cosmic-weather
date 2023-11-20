@@ -33,7 +33,7 @@ const WeeklyForecast = ({data}) => {
                 xs={12}
                 gap="4px"
             >
-                {data.list.map((item, idx) => {
+                {data.list.slice(0,5).map((item, idx) => {
                     return (
                         <Grid
                             item
